@@ -12,13 +12,20 @@ export default function App(): JSX.Element {
 
   const [text, setText] = useState<string>("");
 
+  // For Forms
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="p-10">
       <input
         type="text"
         placeholder="Type here"
         className="input input-bordered w-full max-w-xs"
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setText(e.target.value)
+        }
         value={text}
       />
 
